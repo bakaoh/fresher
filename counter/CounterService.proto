@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package com.example.grpc;
+option go_package = "counter";
+
+service CounterService{
+    rpc SetBalance(UserReq) returns (BalanceRes);
+    rpc GetBalance(UserReq) returns (BalanceRes);
+    rpc IncreaseBalance(UserReq) returns (BalanceRes);
+    rpc DecreaseBalance(UserReq) returns (BalanceRes);
+}
+
+message UserReq{
+    string userId = 1;
+    int64 balance = 2;
+}
+
+message BalanceRes{
+    int64 balance = 1;
+}
+
+
